@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.time() and console.timeEnd() method  
+        //JavaScript console.time() and console.timeEnd() Method: Whenever we want to know the amount of time spend by a block or a function, we can make use of the time() and timeEnd() methods provided by the JavaScript console object. They take a label which must be same, and the code inside can be anything( function, object, simple console).
+        console.time('abc'); 
+        let fun =  function(){ 
+            console.log('fun is running'); 
+        } 
+        let fun2 = function(){ 
+            console.log('fun2 is running..'); 
+        } 
+        let fun3 = function(){ 
+            console.log('fun3 is running..'); 
+        } 
+        let fun4 = function(){ 
+            console.log('fun4 is running..'); 
+        } 
+        let fun5 = function(){ 
+            console.log('fun5 is running..'); 
+        } 
+        fun(); // calling fun(); 
+        fun2(); // calling fun2(); 
+        fun3(); // calling fun2(); 
+        fun4(); // calling fun2(); 
+        fun5(); // calling fun2(); 
+        console.timeEnd('abc');
+    </script>
+    
+</body>
+</html>
