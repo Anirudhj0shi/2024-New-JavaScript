@@ -1,0 +1,26 @@
+<!-- //write a arrow function //calculateArea must be the name of the function 2 parameter radius height
+//Area = 2*pi*r*(r+6) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const calculateArea = (radius,height) =>2*Math.PI*radius*(radius+height);
+        
+        const radiusInput = prompt("Enter the radius:");
+        const heightInput = prompt("Enter the height:");
+
+        const radius = parseFloat(radiusInput);
+        const height = parseFloat(heightInput);
+
+        const area = calculateArea(radius,height);
+        alert(`This is the area :${area}`);
+
+    </script>
+</body>
+</html>
