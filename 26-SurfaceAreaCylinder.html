@@ -1,0 +1,24 @@
+<!-- //write a arrow function //calculateArea must be the name of the function 2 parameter radius height
+//Area = 2*pi*r*(r+6) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const calculateSurfaceArea = (radius, height) => 2 * Math.PI * radius * radius + 2 * Math.PI * radius * height;
+
+        const radius = parseFloat(prompt("Enter the radius:"));
+        const height = parseFloat(prompt("Enter the height:"));
+
+        const SurfaceArea = calculateSurfaceArea(radius, height);
+        alert(`The surface area is: ${SurfaceArea}`);
+
+
+    </script>
+</body>
+</html>
