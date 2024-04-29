@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Player</title>
+<style>
+    #video-container {
+        width: 70%;
+        float: left;
+    }
+    #playlist-container {
+        width: 30%;
+        float: left;
+    }
+</style>
+</head>
+<body>
+
+<div id="video-container">
+    <h2>YouTube Player</h2>
+    <input type="text" id="video-url" placeholder="Enter YouTube URL">
+    <button onclick="playVideo()">Play</button>
+    <br><br>
+    <div id="player"></div>
+</div>
+
+<div id="playlist-container">
+    <h2>Playlist</h2>
+    <ul id="playlist"></ul>
+</div>
+
+<script>
+    function playVideo() {
+        var videoUrl = document.getElementById('video-url').value;
+        var videoId = getYouTubeId(videoUrl);
+        if (videoId) {
+            var playerContainer = document.getElementById('player');
+            playerContainer.innerHTML = '<iframe width="100%" height="315" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            addToPlaylist(videoUrl);
+        } else {
+            alert('Invalid YouTube URL');
+        }
+    }
+
+    function getYouTubeId(url) {
+        var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        var match = url.match(regExp);
+        if (match && match[2].length == 11) {
+            return match[2];
+        } else {
+            return null;
+        }
+    }
+
+    function addToPlaylist(videoUrl) {
+        var playlist = document.getElementById('playlist');
+        var listItem = document.createElement('li');
+        listItem.innerHTML = '<a href="#" onclick="playFromPlaylist(\'' + videoUrl + '\')">' + videoUrl + '</a>';
+        playlist.appendChild(listItem);
+    }
+
+    function playFromPlaylist(videoUrl) {
+        document.getElementById('video-url').value = videoUrl;
+        playVideo();
+    }
+</script>
+
+</body>
+</html>
